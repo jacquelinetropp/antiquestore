@@ -14,6 +14,8 @@ import { checkUserSession } from "./redux/user/user.actions";
 
 const HomePage = lazy(() => import("./pages/homepage/homepage.component"));
 const ShopPage = lazy(() => import("./pages/shop/shop.component"));
+const ContactPage = lazy(() => import("./pages/contact/contact.component"));
+const AboutPage = lazy(() => import("./pages/about/about.component"));
 const SignInAndSignUpPage = lazy(() =>
   import("./pages/sign-in-and-sign-up/sign-in-and-sign-up.component")
 );
@@ -32,8 +34,9 @@ const App = ({ checkUserSession, currentUser }) => {
         <ErrorBoundary>
           <Suspense fallback={<Spinner />}>
             <Route exact path="/" component={HomePage} />
-
             <Route path="/shop" component={ShopPage} />
+            <Route exact path="/contact" component={ContactPage} />
+            <Route exact path="/about" component={AboutPage} />
             <Route exact path="/checkout" component={CheckoutPage} />
             <Route
               exact
